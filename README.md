@@ -1,88 +1,51 @@
-# GISInspector Lite
+﻿# GISInspector Lite
 
-A small, portable, **Windows** app for construction inspection **Daily** and
-**Weekly** reports, plus **Project Edit** and four **inspection logs**. It runs
-fully offline.
+A small, offline **Windows** app for construction inspection **Daily** and
+**Weekly** reports, plus **Project Edit** and four **inspection logs**.
 
-> This repository holds the **download** only. The source code is not published
-> here.
+This repository is for **downloads only**. The source code is not published
+here.
 
-## What it does
+## Download (v0.1.1)
 
-- **Project Edit** — add / edit / delete projects: name, DOT agency, contract
-  id, allowed days, NTP and target dates, and the reporting week start day.
-- **Daily Report** — record the day's inspection (header, arrivals/manpower,
-  equipment, the four inspection logs, site observations, remarks, deliveries,
-  pay items, next steps) and export a **PDF**.
-- **Weekly Report** — roll a chosen week's Daily Reports into a single
-  **Weekly PDF**.
-- **Inspection logs** — four add / edit / delete logs on the Daily Report page:
-  **Concrete Placement**, **Electrical & Conduit**, **Storm Sewer**, and
-  **Earthwork**. Each record carries its own date.
+Two downloads are available. Pick the one that fits:
 
-All work is stored locally in a `data` folder next to the app. There is no
-account, no server, and no internet connection required.
+| Download | Recommended for | Instructions |
+| --- | --- | --- |
+| **[GISInspectorLite-Setup-v0.1.1.exe](https://github.com/gis1948/GISInspectorLite/releases/download/v0.1.1/GISInspectorLite-Setup-v0.1.1.exe)** | Most users | Double-click the installer, click **Next/Finish**. It installs for **your user account only** (no admin rights). |
+| **[GISInspectorLite-Portable-v0.1.1.zip](https://github.com/gis1948/GISInspectorLite/releases/download/v0.1.1/GISInspectorLite-Portable-v0.1.1.zip)** | USB stick or portable use | Unzip anywhere (e.g. USB) and run GISInspectorLite.exe. No installation needed. |
 
-**Export / Import** backs up every project and report to a single JSON file and
-restores it back. **Send my work** / **Get latest** can also move work between
-two computers through a shared folder (a USB stick, a network share, or a
-cloud-synced folder); if both computers changed the same item, the app asks
-which version to keep.
+**Windows only (64-bit).**
 
-## Windows only
+## First run
 
-This app runs on **Windows**. It is a single `.exe` — no installer, no Python,
-and no internet are needed.
+The app is **unsigned**, so Windows SmartScreen may show *"Windows protected your PC"* on first run. If it does:
+1. Click **More info**
+2. Click **Run anyway**
 
-## Install
+Some antivirus tools may also warn about an unsigned download. This is a false positive in many cases; see the [SIGNING_NOTES.md](https://github.com/gis1948/GISInspectorLite-source/blob/master/SIGNING_NOTES.md) in the source repo for details (source repo is private).
 
-1. Download **`GISInspectorLite-v0.1.0.zip`** from the **Releases** section.
-   (This first release, v0.1.0, is published as a **pre-release**.)
-2. **Unzip** it into a folder of your choice (for example `C:\GISInspectorLite`).
-   Do not run it from inside the zip.
-3. Double-click **`GISInspectorLite.exe`** to start.
+## Where your data is stored
 
-On first launch the app creates a `data` folder **next to the executable** and
-keeps all of your projects and reports there. To move the app to another PC,
-copy the whole folder (the `.exe` **and** the `data` folder).
+- **Installer:** Documents\GISInspectorLite
+- **Portable:** data\ next to GISInspectorLite.exe
 
-## First-run warning ("unknown publisher")
+The app shows the exact folder in **About** (top-right of the Hub). 
+**Uninstalling does not delete your data.** If you uninstall the installer, Documents\GISInspectorLite remains on your PC.
 
-The app is not code-signed, so Windows may show a **Windows protected your PC**
-blue box the first time you run it:
+## Updating
 
-1. Click **More info**.
-2. Click **Run anyway**.
-
-## Update
-
-Replace the `.exe`; keep the `data` folder.
-
-1. Close the app (it runs as a single instance — check the taskbar).
-2. Delete or rename the old `GISInspectorLite.exe`.
-3. Put the new `GISInspectorLite.exe` in the **same folder**.
-4. Leave the `data` folder exactly where it is, then start the app again.
-
-Your projects and reports remain. Before updating, it is a good idea to open the
-Hub and use **Export** to save a JSON backup.
+- **Installer:** Run a newer Setup EXE to upgrade in place. Your data in Documents\GISInspectorLite is kept.
+- **Portable:** Unzip a newer zip into the same folder, but **keep the existing data\ folder**.
 
 ## Known limitations
 
-- **Arabic text may print reversed** in exported PDFs (the app does not perform
-  right-to-left text shaping).
-- The app is **unsigned**, so Windows SmartScreen or antivirus software may flag
-  it. See the first-run warning above.
+- **Arabic text order:** Arabic may print reversed in PDFs. Full bidirectional text support is not yet implemented.
+- **Unsigned app:** The app is unsigned, so Windows SmartScreen and some antivirus programs may flag it on first run. Use "More info → Run anyway" if needed.
+- **Windows only.** No macOS/Linux build.
 
 ## Report a problem
 
-Use the **Issues** tab of this repository. Please include what you did, what you
-expected, and what actually happened — and the version shown in the app's status
-bar.
+Use the [Issues tab](https://github.com/gis1948/GISInspectorLite/issues). **Do not attach real project data to an Issue.** A description of what happened, steps to reproduce, any error messages, and (if possible) the pp.log from your data folder is usually enough.
 
-**Do not attach real project data** (project names, numbers, PDFs, or database
-files) to an Issue.
-
-## License
-
-The software is provided **as is**, without warranty of any kind.
-All rights reserved.
+**Software provided as is, all rights reserved.**
